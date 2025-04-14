@@ -7,7 +7,7 @@ import { type Geo } from "./util.ts/util";
 import { HEATMAP_TYPES, initMap } from "./util.ts/googleMap";
 import { Orientation } from "./components/orientation";
 
-const { main, p, button, div } = van.tags;
+const { main, p, button, div, a } = van.tags;
 
 const Hello = () => {
   const geo = vanX.reactive<Geo>({
@@ -49,6 +49,10 @@ const Hello = () => {
     Pollen(geo),
     Air(geo),
     Orientation(),
+    a(
+      { href: "https://www.jma.go.jp/jma/index.html", target: "_blank" },
+      "気象庁"
+    ),
     div(
       { id: "container" },
       Object.keys(HEATMAP_TYPES).map((key) =>
