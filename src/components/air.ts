@@ -47,7 +47,7 @@ export const Air = (geo: Geo) => {
         console.log("Air data:", airData.val);
       })
       .catch((error) => {
-        console.error("Error fetching pollen data:", error);
+        console.error("Error fetching air data:", error);
       });
   };
 
