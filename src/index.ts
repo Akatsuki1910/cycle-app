@@ -5,6 +5,7 @@ import { Pollen } from "./components/pollen";
 import "./Head";
 import { type Geo } from "./util.ts/util";
 import { HEATMAP_TYPES, initMap } from "./util.ts/googleMap";
+import { Orientation } from "./components/orientation";
 
 const { main, p, button, div } = van.tags;
 
@@ -47,6 +48,7 @@ const Hello = () => {
     button({ onclick: getLocation }, "Get Location"),
     Pollen(geo),
     Air(geo),
+    Orientation(),
     div(
       { id: "container" },
       Object.keys(HEATMAP_TYPES).map((key) =>
