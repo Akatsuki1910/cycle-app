@@ -8,15 +8,8 @@ const { p, button, div, table, tr, th, td, thead, tbody } = van.tags;
 
 export const Air = (geo: Geo) => {
   let airData = van.state<AirQualityResponse | null>(null);
-  const airGeo = vanX.reactive({
-    lat: 0,
-    lon: 0,
-  });
 
   const getAirData = () => {
-    airGeo.lat = geo.lat;
-    airGeo.lon = geo.lon;
-
     const query = new URLSearchParams({
       key: import.meta.env.VITE_API_KEY as string,
     });
@@ -29,8 +22,8 @@ export const Air = (geo: Geo) => {
         },
         body: JSON.stringify({
           location: {
-            latitude: airGeo.lat,
-            longitude: airGeo.lon,
+            latitude: geo.lat,
+            longitude: geo.lon,
           },
           extraComputations: [
             "HEALTH_RECOMMENDATIONS",

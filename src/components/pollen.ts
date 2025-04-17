@@ -9,15 +9,8 @@ const { p, button, div, table, tr, th, td, thead, tbody } = van.tags;
 
 export const Pollen = (geo: Geo) => {
   let pollenData = van.state<PollenResponse["dailyInfo"][number] | null>(null);
-  const pollenGeo = vanX.reactive({
-    lat: 0,
-    lon: 0,
-  });
 
   const getPollenData = () => {
-    pollenGeo.lat = geo.lat;
-    pollenGeo.lon = geo.lon;
-
     const query = new URLSearchParams({
       key: import.meta.env.VITE_API_KEY as string,
       "location.longitude": round(geo.lon, 2).toString(),
@@ -78,9 +71,7 @@ export const Pollen = (geo: Geo) => {
               )
             )
           )
-      ),
-      () => p("Latitude: " + pollenGeo.lat),
-      () => p("Longitude: " + pollenGeo.lon)
+      )
     )
   );
 };

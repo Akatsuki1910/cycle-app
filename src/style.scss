@@ -6,7 +6,10 @@ html,
 body {
   height: 100%;
   width: 100%;
-  // overflow: hidden;
+  overflow: hidden;
+
+  font-family: "JetBrains Mono", monospace;
+  font-optical-sizing: auto;
 }
 
 #map {

@@ -1,7 +1,5 @@
 import van from "vanjs-core";
-import * as vanX from "vanjs-ext";
 import type { Geo } from "../util.ts/util";
-import { getCssStyle, rgbToCssColor, round } from "../util.ts/util";
 import { fetchWeatherApi } from "openmeteo";
 
 const { p, button, div, table, tr, th, td, thead, tbody } = van.tags;
@@ -78,15 +76,8 @@ export const Weather = (geo: Geo) => {
       };
     };
   } | null>(null);
-  const weatherGeo = vanX.reactive({
-    lat: 0,
-    lon: 0,
-  });
 
   const getWeatherData = async () => {
-    weatherGeo.lat = geo.lat;
-    weatherGeo.lon = geo.lon;
-
     const params = {
       latitude: geo.lat,
       longitude: geo.lon,
@@ -255,10 +246,6 @@ export const Weather = (geo: Geo) => {
               )
             )
           )
-        : "",
-    div(
-      () => p("Latitude: " + weatherGeo.lat),
-      () => p("Longitude: " + weatherGeo.lon)
-    )
+        : ""
   );
 };
