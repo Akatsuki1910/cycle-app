@@ -6,6 +6,7 @@ import "./Head";
 import { type Geo } from "./util.ts/util";
 import { HEATMAP_TYPES, initMap } from "./util.ts/googleMap";
 import { Orientation } from "./components/orientation";
+import { Weather } from "./components/weather";
 
 const { main, p, button, div, a } = van.tags;
 
@@ -49,6 +50,7 @@ const Hello = () => {
     Pollen(geo),
     Air(geo),
     Orientation(),
+    Weather(geo),
     a(
       { href: "https://www.jma.go.jp/jma/index.html", target: "_blank" },
       "気象庁"
